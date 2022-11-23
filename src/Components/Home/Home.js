@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import bannerLogo from "../../camera.jpg";
 
 const Home = () => {
@@ -17,7 +18,9 @@ const Home = () => {
             with an aperture to admit light focused onto a sensitized film or
             plate.
           </p>
-          <button className="btn glass">Explore more</button>
+          <Link to={"/categories"}>
+            <button className="btn glass">Explore more</button>
+          </Link>
         </div>
       </div>
     </div>

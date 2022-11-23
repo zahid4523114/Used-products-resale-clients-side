@@ -11,7 +11,7 @@ const Blog = () => {
           application?
           <FaAngleDown></FaAngleDown>
         </div>
-        <div className="collapse-content text-primary-content  peer-checked:text-secondary-content">
+        <div className="collapse-content text-primary-content  ">
           <div>
             There are four main types of state you need to properly manage in
             your React apps: Local state, Global state, Server state, URL state
@@ -65,7 +65,7 @@ const Blog = () => {
           2. How does prototypical inheritance work?
           <FaAngleDown></FaAngleDown>
         </div>
-        <div className="collapse-content text-primary-content  peer-checked:text-secondary-content">
+        <div className="collapse-content text-primary-content  ">
           <div>
             <p>
               The Prototypal Inheritance is a feature in javascript used to add
@@ -84,7 +84,7 @@ const Blog = () => {
           3.What is a unit test? Why should we write unit tests?
           <FaAngleDown></FaAngleDown>
         </div>
-        <div className="collapse-content text-primary-content  peer-checked:text-secondary-content">
+        <div className="collapse-content text-primary-content  ">
           <div>
             <p>
               The main objective of unit testing is to isolate written code to
@@ -103,7 +103,7 @@ const Blog = () => {
           4.React vs. Angular vs. Vue?
           <FaAngleDown></FaAngleDown>
         </div>
-        <div className="collapse-content text-primary-content  peer-checked:text-secondary-content">
+        <div className="collapse-content text-primary-content  ">
           <div>
             <div>
               <b>Angular vs React</b>

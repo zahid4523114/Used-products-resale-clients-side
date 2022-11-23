@@ -4,6 +4,8 @@ import AddProduct from "../AddProduct/AddProduct";
 import Blog from "../Blog/Blog";
 import Categories from "../Categories/Categories";
 import Home from "../Home/Home";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },

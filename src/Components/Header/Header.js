@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../Camsec-logo.png";
+import { AuthContext } from "../Context/ContextProvider";
 
 const Header = () => {
+  const { user, userSignOut } = useContext(AuthContext);
+
   const navLinks = (
     <React.Fragment>
       <Link to="/home" className="text-white">
@@ -14,24 +17,24 @@ const Header = () => {
       <Link to="/addProduct" className="text-white">
         Add a product
       </Link>
-      <Link to={"/blog"} className="text-white">
-        Blog
-      </Link>
 
-      {/* {user?.email ? (
+      {user?.email ? (
         <>
-      <Link to="/dashBoard" className="rounded-lg">
-        Dash Board
-      </Link>
-          <Link onClick={userSignOut} className="rounded-lg">
+          <Link to="/dashBoard" className="text-white">
+            Dash Board
+          </Link>
+          <Link onClick={userSignOut} className="text-white">
             LOG OUT
           </Link>
         </>
       ) : (
-        <Link to="/login" className="rounded-lg">
+        <Link to="/login" className="text-white">
           LOG IN
         </Link>
-      )} */}
+      )}
+      <Link to={"/blog"} className="text-white">
+        Blog
+      </Link>
     </React.Fragment>
   );
   return (
@@ -41,7 +44,7 @@ const Header = () => {
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -62,7 +65,7 @@ const Header = () => {
           </ul>
         </div>
         <Link>
-          <img className="w-1/2 " src={Logo} alt="" />
+          <img className="lg:w-1/2 md:w-1/2 " src={Logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
