@@ -10,7 +10,7 @@ const Footer = () => {
           <p>
             Camsec Industries Ltd.
             <br />
-            Providing reliable tech since 1992
+            Providing reliable tech since.
           </p>
         </div>
         <div>
