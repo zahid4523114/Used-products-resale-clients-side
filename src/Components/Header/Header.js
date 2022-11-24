@@ -11,18 +11,9 @@ const Header = () => {
       <Link to="/home" className="text-white">
         Home
       </Link>
-      {/* <Link to={"/categories"} className="text-white">
-        Categories
-      </Link> */}
-      <Link to="/addProduct" className="text-white">
-        Add a product
-      </Link>
 
       {user?.email ? (
         <>
-          <Link to="/dashBoard" className="text-white">
-            My product
-          </Link>
           <Link to="/dashBoard" className="text-white">
             Dash Board
           </Link>
