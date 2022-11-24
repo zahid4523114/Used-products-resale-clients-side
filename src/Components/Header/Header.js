@@ -21,6 +21,9 @@ const Header = () => {
       {user?.email ? (
         <>
           <Link to="/dashBoard" className="text-white">
+            My product
+          </Link>
+          <Link to="/dashBoard" className="text-white">
             Dash Board
           </Link>
           <Link onClick={userSignOut} className="text-white">

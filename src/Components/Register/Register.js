@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../Context/ContextProvider";
 
 const Register = () => {
-  const { userRegister, loginWithGoogle } = useContext(AuthContext);
+  const { userRegister, loginWithGoogle, updateUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -20,13 +20,15 @@ const Register = () => {
     const email = data.email;
     const password = data.password;
     const name = data.name;
-    console.log(email);
+    const user = data.user;
+    // console.log(email, password, name, user);
     //register user
     userRegister(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // createUser(email, name);
+        updateUser(name);
+        toast.success("Register successful");
         navigate("/home");
       })
       .catch((error) => {
@@ -112,6 +114,13 @@ const Register = () => {
                 placeholder="password"
                 className="input input-bordered"
               />
+              <select
+                {...register("user", { required: true })}
+                className="select w-full my-5 select-bordered max-w-xs"
+              >
+                <option>Buyer</option>
+                <option>Seller</option>
+              </select>
               {errors.password && (
                 <p className="text-red-600 mt-3">{errors.password?.message}</p>
               )}

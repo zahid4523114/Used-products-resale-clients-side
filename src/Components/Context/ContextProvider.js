@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
@@ -52,6 +53,11 @@ const ContextProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //update user
+  const updateUser = (name) => {
+    return updateProfile(auth.currentUser, { displayName: name });
+  };
+
   const authInfo = {
     userLogin,
     userRegister,
@@ -59,6 +65,7 @@ const ContextProvider = ({ children }) => {
     userSignOut,
     user,
     loader,
+    updateUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

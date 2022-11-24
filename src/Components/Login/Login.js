@@ -3,11 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/ContextProvider";
-
-// import UserToken from "../UseToken/UseToken";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { userLogin, user, loginWithGoogle } = useContext(AuthContext);
+  const { userLogin, loginWithGoogle } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +28,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("Login successful");
         navigate(from, { replace: true });
       })
       .catch((error) => {

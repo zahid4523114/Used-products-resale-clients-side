@@ -3,7 +3,7 @@ import { FaAngleDown } from "react-icons/fa";
 
 const Blog = () => {
   return (
-    <div>
+    <div className=" my-8 mb-40">
       <div className="collapse">
         <input type="checkbox" className="peer" />
         <div className="collapse-title flex items-center font-bold text-xl">
