@@ -11,6 +11,7 @@ const Footer = () => {
             Camsec Industries Ltd.
             <br />
             Providing reliable tech since 1992.
+            <br />© Camsec 2000-2022- All Rights Reserved | Privacy Policy
           </p>
         </div>
         <div>
