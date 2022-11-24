@@ -11,9 +11,9 @@ const Header = () => {
       <Link to="/home" className="text-white">
         Home
       </Link>
-      <Link to={"/categories"} className="text-white">
+      {/* <Link to={"/categories"} className="text-white">
         Categories
-      </Link>
+      </Link> */}
       <Link to="/addProduct" className="text-white">
         Add a product
       </Link>

@@ -30,7 +30,7 @@ const Home = () => {
               with an aperture to admit light focused onto a sensitized film or
               plate.
             </p>
-            <Link to={"/categories"}>
+            <Link>
               <button className="btn glass">Explore more</button>
             </Link>
           </div>
