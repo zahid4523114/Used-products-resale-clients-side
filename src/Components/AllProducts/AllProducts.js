@@ -11,7 +11,7 @@ const AllProducts = () => {
             <img src={product.photo} alt="car!" />
           </figure>
           <div className="card-body">
-            <h2 className="card-title ">{product.title}</h2>
+            {/* <h2 className="card-title ">{product.title}</h2> */}
             <h3 className="font-bold">
               Uses:
               {product.uses === 1
