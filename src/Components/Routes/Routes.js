@@ -8,6 +8,7 @@ import DashBoard from "../DashBoard/DashBoard";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import MyOrders from "../MyOrders/MyOrders";
+import MyProducts from "../MyProducts/MyProducts";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Register from "../Register/Register";
 
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashBoard/addProduct",
         element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "/dashBoard/myProducts",
+        element: <MyProducts></MyProducts>,
       },
     ],
   },

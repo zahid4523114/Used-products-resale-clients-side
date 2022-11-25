@@ -21,7 +21,7 @@ const DashboardLayout = () => {
               <Link to="/dashBoard/addProduct">Add Product</Link>
             </li>
             <li>
-              <Link>Sidebar Item 2</Link>
+              <Link to="/dashBoard/myProducts">My Products</Link>
             </li>
           </ul>
         </div>

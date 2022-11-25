@@ -34,6 +34,7 @@ const AllProducts = () => {
               </h3>
               <h3 className="font-bold">ResalePrice: {product.resalePrice}</h3>
               <h3 className="font-bold">Location: {product.loaction}</h3>
+              <h3 className="font-bold">Date: {product.date}</h3>
               <h3 className="font-bold">Seller: {user?.displayName}</h3>
               <div className="card-actions">
                 <label
