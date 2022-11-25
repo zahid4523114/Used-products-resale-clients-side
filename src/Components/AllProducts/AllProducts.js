@@ -5,8 +5,11 @@ import { AuthContext } from "../Context/ContextProvider";
 
 const AllProducts = () => {
   const productData = useLoaderData();
+
   const { user } = useContext(AuthContext);
+
   const [products, setProducts] = useState(null);
+
   return (
     <div>
       <div className="flex lg:flex-row flex-col lg:my-20 m-3 justify-around ">
