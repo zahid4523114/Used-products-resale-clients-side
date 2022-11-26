@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import bannerLogo from "../../camera.jpg";
+import bannerLogo from "../../vintage.jpg";
 import "./Home.css";
 
 const Home = () => {
@@ -32,9 +32,9 @@ const Home = () => {
         className="hero min-h-screen"
         style={{ backgroundImage: `url(${bannerLogo})` }}
       >
-        <div className="hero-overlay bg-opacity-50"></div>
+        <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-lg">
+          <div className="lg:w-1/2 w-lg">
             <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
             <p className="mb-5">
               camera, in photography, device for recording an image of an object
@@ -43,7 +43,7 @@ const Home = () => {
               plate.
             </p>
             <Link>
-              <button className="btn glass">Explore more</button>
+              <button className="btn glass mx-auto">Explore more</button>
             </Link>
           </div>
         </div>

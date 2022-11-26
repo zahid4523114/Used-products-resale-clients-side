@@ -20,16 +20,36 @@ const Register = () => {
     const email = data.email;
     const password = data.password;
     const name = data.name;
-    const user = data.user;
-    // console.log(email, password, name, user);
+    const role = data.user;
+    // console.log(email, password, name, role);
     //register user
     userRegister(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         updateUser(name);
-        toast.success("Register successful");
-        navigate("/home");
+
+        //add user to db
+        const userData = {
+          name,
+          email,
+          role,
+        };
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              toast.success("User added successfully");
+              navigate("/home");
+              console.log(data);
+            }
+          });
       })
       .catch((error) => {
         console.log(error);

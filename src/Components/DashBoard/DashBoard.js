@@ -17,7 +17,8 @@ const DashBoard = () => {
   });
 
   return (
-    <div>
+    <div className="lg:mx-3">
+      <h1 className="lg:text-3xl text-xl font-bold my-3  ">My orders</h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
