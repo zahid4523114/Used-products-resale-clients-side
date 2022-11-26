@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
@@ -39,8 +40,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+        loader: async ({ params }) => {
+          const response = await axios.get(
+            `http://localhost:5000/products/${params.id}`
+          );
+          return response;
+        },
         element: (
           <PrivateRoute>
             <AllProducts></AllProducts>

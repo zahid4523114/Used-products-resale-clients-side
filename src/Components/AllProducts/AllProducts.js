@@ -11,9 +11,9 @@ const AllProducts = () => {
   const [products, setProducts] = useState(null);
 
   return (
-    <div>
+    <div className="">
       <div className="flex lg:flex-row flex-col lg:my-20 m-3 justify-around ">
-        {productData.map((product) => (
+        {productData.data.map((product) => (
           <div
             key={product._id}
             className="card card-compact bg-base-100 shadow-xl mx-auto lg:mt-0 mt-8 lg:w-96 w-full "

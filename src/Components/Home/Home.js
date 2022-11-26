@@ -1,21 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import bannerLogo from "../../vintage.jpg";
 import "./Home.css";
 
 const Home = () => {
-  // const { data: categories = [] } = useQuery({
-  //   queryKey: ["categories"],
-  //   queryFn: async () => {
-  //     const res = await fetch(`http://localhost:5000/categories`);
-  //     const data = res.json();
-  //     return data;
-  //   },
-  // });
   const [loader, setLoader] = useState(true);
 
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
     fetch(`http://localhost:5000/categories`)
       .then((res) => res.json())
@@ -25,6 +19,12 @@ const Home = () => {
         setLoader(false);
       });
   }, []);
+
+  // axios.get(`http://localhost:5000/categories`).then((data) => {
+  //   console.log(data);
+  //   setCategories(data.data);
+  //   setLoader(false);
+  // });
 
   return (
     <section>

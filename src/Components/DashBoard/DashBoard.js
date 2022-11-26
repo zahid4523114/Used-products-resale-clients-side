@@ -9,7 +9,12 @@ const DashBoard = () => {
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookings?email=${user?.email}`
+        `http://localhost:5000/bookings?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
       );
       const data = res.json();
       return data;
@@ -33,7 +38,7 @@ const DashBoard = () => {
           <tbody>
             {bookings &&
               bookings?.map((book, i) => (
-                <tr className="hover">
+                <tr key={i} className="hover">
                   <th>{i + 1}</th>
                   <td>
                     <div className="avatar online">

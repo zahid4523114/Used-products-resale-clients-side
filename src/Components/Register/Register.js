@@ -4,11 +4,18 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Context/ContextProvider";
+import UserToken from "../UserToken/UserToken";
 
 const Register = () => {
   const { userRegister, loginWithGoogle, updateUser } = useContext(AuthContext);
+  // const [userEmail, setUserEmail] = useState("");
+  // const [token] = UserToken(userEmail);
 
   const navigate = useNavigate();
+
+  // if (token) {
+  //   navigate("/home");
+  // }
 
   const {
     register,
@@ -45,8 +52,9 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {
+              // setUserEmail(email);
               toast.success("User added successfully");
-              navigate("/home");
+              navigate("/");
               console.log(data);
             }
           });
@@ -55,25 +63,6 @@ const Register = () => {
         console.log(error);
       });
   };
-
-  //send user data to db
-  // const createUser = (email, name) => {
-  //   const userData = { email, name };
-  //   fetch("http://localhost:5000/usersInfo", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(userData),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.acknowledged) {
-  //         toast.success("user added successfully");
-  //       }
-  //       console.log(data);
-  //     });
-  // };
 
   return (
     <div className="hero min-h-screen px-3 bg-base-200">
