@@ -33,7 +33,7 @@ const AddProduct = ({ setAddedProduct }) => {
       loaction,
       description,
     };
-
+    console.log(uses);
     //send data to db
     fetch(`http://localhost:5000/addProduct`, {
       method: "POST",

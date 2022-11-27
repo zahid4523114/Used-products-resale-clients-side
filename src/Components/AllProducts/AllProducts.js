@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import AddProduct from "../AddProduct/AddProduct";
 import BookingModal from "../BookingModal/BookingModal";
 import { AuthContext } from "../Context/ContextProvider";
@@ -13,11 +13,14 @@ const AllProducts = () => {
 
   return (
     <div className="">
-      <div className="flex lg:flex-row flex-col lg:my-20 m-3 justify-around ">
+      <h1 className="text-center lg:text-3xl text-2xl font-bold mt-10">
+        Book <span className="text-violet-500">Products</span> Here!
+      </h1>
+      <div className="flex lg:flex-row flex-col flex-wrap lg:my-20 m-3 justify-around ">
         {productData.data.map((product) => (
           <div
             key={product._id}
-            className="card card-compact bg-base-100 shadow-xl mx-auto lg:mt-0 mt-8 lg:w-96 w-full "
+            className="card card-compact lg:mb-5 bg-base-100 shadow-xl mx-auto lg:mt-0 mt-8 lg:w-80 w-full "
           >
             <figure>
               <img src={product.photo} alt="car!" />
@@ -35,7 +38,7 @@ const AllProducts = () => {
                   OriginalPrice: {product.originalPrice}
                 </h3>
               ) : (
-                <h3>no price added</h3>
+                <h3 className="font-bold">OriginalPrice: no price added</h3>
               )}
 
               <h3 className="font-bold">ResalePrice: {product.resalePrice}</h3>
@@ -55,6 +58,8 @@ const AllProducts = () => {
           </div>
         ))}
       </div>
+
+      {/* booking modal */}
       {products && (
         <BookingModal
           setProducts={setProducts}

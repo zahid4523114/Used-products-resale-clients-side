@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/ContextProvider";
 
@@ -28,6 +29,23 @@ const MyProducts = () => {
       });
   };
 
+  //advertise product
+  const handleAdvertise = (product) => {
+    fetch(`http://localhost:5000/setAdvertiseProduct`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Product advertised successfully.");
+        }
+      });
+  };
+
   return (
     <div className="lg:mx-3">
       <h1 className="lg:text-3xl text-xl font-bold my-3  ">My products</h1>
@@ -40,6 +58,7 @@ const MyProducts = () => {
               <th>Quality</th>
               <th>Post date</th>
               <th>Price</th>
+              <th>Advertise</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -47,10 +66,18 @@ const MyProducts = () => {
             {addProduct.map((product, i) => (
               <tr key={product._id} className="hover">
                 <th>{i + 1}</th>
-                <td>{product.name}</td>
+                <td>{product.title}</td>
                 <td>{product.review}</td>
                 <td>{product.date}</td>
-                <td>{product.price}</td>
+                <td>{product.resalePrice}</td>
+                <td>
+                  <button
+                    onClick={() => handleAdvertise(product)}
+                    className="btn btn-success btn-xs"
+                  >
+                    Advertise
+                  </button>
+                </td>
                 <td>
                   <button
                     onClick={() => handleDeleteProduct(product._id)}
