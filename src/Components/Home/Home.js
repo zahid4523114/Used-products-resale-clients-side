@@ -74,7 +74,7 @@ const Home = () => {
                     </h2>
                     <p>{category.categoryDes}</p>
                     <div className="card-actions justify-end">
-                      <Link to={`/category/${category.categoryId}`}>
+                      <Link to={`/category/${category.categoryName}`}>
                         <button className="btn btn-primary text-white">
                           See category
                         </button>

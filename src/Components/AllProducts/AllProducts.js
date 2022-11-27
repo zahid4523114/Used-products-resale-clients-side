@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import AddProduct from "../AddProduct/AddProduct";
 import BookingModal from "../BookingModal/BookingModal";
 import { AuthContext } from "../Context/ContextProvider";
 
@@ -29,9 +30,14 @@ const AllProducts = () => {
                   ? product.uses + "year"
                   : product.uses + "years"}
               </h3>
-              <h3 className="font-bold">
-                OriginalPrice: {product.originalPrice}
-              </h3>
+              {product.originalPrice ? (
+                <h3 className="font-bold">
+                  OriginalPrice: {product.originalPrice}
+                </h3>
+              ) : (
+                <h3>no price added</h3>
+              )}
+
               <h3 className="font-bold">ResalePrice: {product.resalePrice}</h3>
               <h3 className="font-bold">Location: {product.loaction}</h3>
               <h3 className="font-bold">Date: {product.date}</h3>
