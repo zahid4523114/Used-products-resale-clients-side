@@ -7,7 +7,9 @@ import toast from "react-hot-toast";
 import UserToken from "../UserToken/UserToken";
 
 const Login = () => {
-  const { user, userLogin, loginWithGoogle } = useContext(AuthContext);
+  const { userLogin, loginWithGoogle } = useContext(AuthContext);
+
+  const [userEmail, setUserEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -15,7 +17,7 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const [token] = UserToken(user?.email);
+  const [token] = UserToken(userEmail);
 
   if (token) {
     navigate(from, { replace: true });
@@ -34,15 +36,16 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
+        setUserEmail(email);
         toast.success("Login successful");
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  console.log(userEmail);
   return (
     <div className="hero min-h-screen  bg-base-200">
       <div className="hero-content flex-col my-5  mx-auto p-0 ">

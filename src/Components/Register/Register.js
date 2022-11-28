@@ -8,7 +8,9 @@ import UserToken from "../UserToken/UserToken";
 
 const Register = () => {
   const { userRegister, loginWithGoogle, updateUser } = useContext(AuthContext);
+
   const [userEmail, setUserEmail] = useState("");
+
   const [token] = UserToken(userEmail);
 
   const navigate = useNavigate();
