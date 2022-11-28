@@ -11,7 +11,7 @@ const MyProducts = () => {
     queryKey: ["addProduct", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/addProduct?email=${user?.email}`
+        `https://used-products-resale-server-side.vercel.app/addProduct?email=${user?.email}`
       );
       const data = res.json();
       return data;
@@ -19,9 +19,12 @@ const MyProducts = () => {
   });
 
   const handleDeleteProduct = (id) => {
-    fetch(`http://localhost:5000/addProduct/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://used-products-resale-server-side.vercel.app/addProduct/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json)
       .then((data) => {
         console.log(data);
@@ -31,13 +34,16 @@ const MyProducts = () => {
 
   //advertise product
   const handleAdvertise = (product) => {
-    fetch(`http://localhost:5000/setAdvertiseProduct`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
+    fetch(
+      `https://used-products-resale-server-side.vercel.app/setAdvertiseProduct`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

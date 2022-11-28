@@ -35,7 +35,7 @@ const AddProduct = ({ setAddedProduct }) => {
     };
     console.log(uses);
     //send data to db
-    fetch(`http://localhost:5000/addProduct`, {
+    fetch(`https://used-products-resale-server-side.vercel.app/addProduct`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,13 +45,16 @@ const AddProduct = ({ setAddedProduct }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          fetch(`http://localhost:5000/products`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(addProductData),
-          })
+          fetch(
+            `https://used-products-resale-server-side.vercel.app/products`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(addProductData),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               toast.success("Product added successfully");

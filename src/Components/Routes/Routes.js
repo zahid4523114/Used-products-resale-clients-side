@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
         path: "/category/:id",
         loader: async ({ params }) => {
           const response = await axios.get(
-            `http://localhost:5000/products/${params.id}`
+            `https://used-products-resale-server-side.vercel.app/products/${params.id}`
           );
           return response;
         },

@@ -9,10 +9,10 @@ const DashBoard = () => {
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookings?email=${user?.email}`,
+        `https://used-products-resale-server-side.vercel.app/bookings?email=${user?.email}`,
         {
           headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            authorization: `bearer ${localStorage.getItem("user-token")}`,
           },
         }
       );
@@ -20,6 +20,8 @@ const DashBoard = () => {
       return data;
     },
   });
+
+  console.log(bookings);
 
   return (
     <div className="lg:mx-3">
@@ -36,27 +38,26 @@ const DashBoard = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings &&
-              bookings?.map((book, i) => (
-                <tr key={i} className="hover">
-                  <th>{i + 1}</th>
-                  <td>
-                    <div className="avatar online">
-                      <div className="w-12 rounded-full">
-                        <img alt="" src={book?.photo} />
-                      </div>
+            {bookings?.map((book, i) => (
+              <tr key={i} className="hover">
+                <th>{i + 1}</th>
+                <td>
+                  <div className="avatar online">
+                    <div className="w-12 rounded-full">
+                      <img alt="" src={book?.photo} />
                     </div>
-                  </td>
+                  </div>
+                </td>
 
-                  <td>{book?.product}</td>
-                  <td>{book?.email}</td>
-                  <td>
-                    <button className="btn btn-error btn-xs text-white">
-                      Pay Money
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                <td>{book?.product}</td>
+                <td>{book?.email}</td>
+                <td>
+                  <button className="btn btn-error btn-xs text-white">
+                    Pay Money
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

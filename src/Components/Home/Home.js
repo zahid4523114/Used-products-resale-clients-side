@@ -11,7 +11,7 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categories`)
+    fetch(`https://used-products-resale-server-side.vercel.app/categories`)
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);
@@ -22,7 +22,9 @@ const Home = () => {
   const [advertised, setAdvertised] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/setAdvertiseProduct`)
+    fetch(
+      `https://used-products-resale-server-side.vercel.app/setAdvertiseProduct`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAdvertised(data);

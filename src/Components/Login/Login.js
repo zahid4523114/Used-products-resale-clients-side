@@ -15,11 +15,11 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  // const [token] = UserToken(user?.email);
+  const [token] = UserToken(user?.email);
 
-  // if (token) {
-  //   navigate(from, { replace: true });
-  // }
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   const {
     register,
@@ -35,7 +35,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login successful");
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => {

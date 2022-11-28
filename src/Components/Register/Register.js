@@ -8,14 +8,14 @@ import UserToken from "../UserToken/UserToken";
 
 const Register = () => {
   const { userRegister, loginWithGoogle, updateUser } = useContext(AuthContext);
-  // const [userEmail, setUserEmail] = useState("");
-  // const [token] = UserToken(userEmail);
+  const [userEmail, setUserEmail] = useState("");
+  const [token] = UserToken(userEmail);
 
   const navigate = useNavigate();
 
-  // if (token) {
-  //   navigate("/home");
-  // }
+  if (token) {
+    navigate("/home");
+  }
 
   const {
     register,
@@ -42,7 +42,7 @@ const Register = () => {
           email,
           role,
         };
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://used-products-resale-server-side.vercel.app/users`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -52,9 +52,9 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {
-              // setUserEmail(email);
+              setUserEmail(email);
               toast.success("User added successfully");
-              navigate("/");
+              // navigate("/");
               console.log(data);
             }
           });
