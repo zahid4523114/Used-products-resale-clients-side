@@ -8,31 +8,31 @@ const Header = () => {
 
   const navLinks = (
     <React.Fragment>
-      <Link to="/home" className="text-white">
+      <Link to="/home" className="text-black ">
         Home
       </Link>
 
       {user?.email ? (
         <>
-          <Link to="/dashBoard" className="text-white">
+          <Link to="/dashBoard" className="text-black ">
             Dash Board
           </Link>
-          <Link onClick={userSignOut} className="text-white">
+          <Link onClick={userSignOut} className="text-black ">
             LOG OUT
           </Link>
         </>
       ) : (
-        <Link to="/login" className="text-white">
+        <Link to="/login" className="text-black ">
           LOG IN
         </Link>
       )}
-      <Link to={"/blog"} className="text-white">
+      <Link to={"/blog"} className="text-black ">
         Blog
       </Link>
     </React.Fragment>
   );
   return (
-    <div className="navbar bg-neutral  lg:flex lg:justify-between justify-between items-center">
+    <div className="navbar shadow-lg  lg:flex lg:justify-between justify-between items-center">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,11 +59,7 @@ const Header = () => {
           </ul>
         </div>
         <Link>
-          <img
-            className="lg:w-1/2 md:w-1/2 bg-base-200 px-3"
-            src={Logo}
-            alt=""
-          />
+          <img className="lg:w-1/2 md:w-1/2 " src={Logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import bannerLogo from "../../vintage.jpg";
+import bannerLogo from "../../image/undraw_Camera_re_cnp4.png";
 import "./Home.css";
 
 const Home = () => {
@@ -34,23 +34,20 @@ const Home = () => {
 
   return (
     <section>
-      <div
-        className="hero min-h-screen"
-        style={{ backgroundImage: `url(${bannerLogo})` }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="lg:w-1/2 w-lg">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">
-              camera, in photography, device for recording an image of an object
-              on a light-sensitive surface; it is essentially a light-tight box
-              with an aperture to admit light focused onto a sensitized film or
-              plate.
+      <div className="hero min-h-screen ">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <img alt="" src={bannerLogo} className="w-1/2 " />
+          <div>
+            <h1 className="text-5xl font-bold">Capture the moments</h1>
+            <p className="py-6">
+              A digital camera is a camera that captures photographs in digital
+              memory. Most cameras produced today are digital,largely replacing
+              those that capture images on photographic film.High-end,
+              high-definition dedicated cameras are still commonly used by
+              professionals and those who desire to take higher-quality
+              photographs.
             </p>
-            <Link>
-              <button className="btn glass mx-auto">Explore more</button>
-            </Link>
+            <button className="btn btn-primary text-white">Get Started</button>
           </div>
         </div>
       </div>
@@ -71,10 +68,14 @@ const Home = () => {
               {categories.map((category) => (
                 <div
                   key={category._id}
-                  className="card lg:w-96 w-full lg:mb-0 mb-5 bg-base-100 shadow-xl image-full"
+                  className="card lg:w-96 w-full lg:mb-0 mb-5  bg-base-100 shadow-xl image-full"
                 >
                   <figure>
-                    <img src={category.categoryThumb} alt="Shoes" />
+                    <img
+                      src={category.categoryThumb}
+                      className=""
+                      alt="Shoes"
+                    />
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title  text-white">

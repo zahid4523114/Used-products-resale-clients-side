@@ -11,9 +11,9 @@ const DashboardLayout = () => {
         <div className="drawer-content flex flex-col">
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side shadow-lg">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+          <ul className="menu p-4 w-80 mt-2 text-base-content">
             <li>
               <Link to="/dashBoard">My Orders</Link>
             </li>

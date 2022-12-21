@@ -4,7 +4,7 @@ import { FcOldTimeCamera } from "react-icons/fc";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+      <footer className="footer p-10 text-black bg-base-200 shadow-2xl">
         <div>
           <FcOldTimeCamera className="text-4xl"></FcOldTimeCamera>
           <p>

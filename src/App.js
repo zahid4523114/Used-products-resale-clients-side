@@ -8,7 +8,7 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="bg-base-200">
+    <div className="white">
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}></RouterProvider>
         <Toaster />
