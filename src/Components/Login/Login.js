@@ -83,7 +83,8 @@ const Login = () => {
                   },
                   pattern: {
                     value: /(?=.*\d)(?=.*[A-Z])(?=.*[a-z])/,
-                    message: "Password must be strong..!",
+                    message:
+                      "Password must be strong.Use symbols,minimum one capital letter and small letter..!",
                   },
                 })}
                 type="password"
